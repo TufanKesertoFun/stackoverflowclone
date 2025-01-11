@@ -1,6 +1,9 @@
 const Home = () => 
    (
-    <h1 className="text-3xl text-violet-700 font-black">Welcome</h1>
+    <>
+    <h1 className="h1-bold">tufan</h1>
+    <h1 className="h1-xl">keser</h1>
+    </>
   )
 
 

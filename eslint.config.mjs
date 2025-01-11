@@ -1,16 +1,23 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+// Define the ESLint configuration array
+const configArray = [
+  "next/typescript",
+  "standard",
+  "plugin:tailwindcss/recommended",
+  "prettier",
 ];
 
-export default eslintConfig;
+// Export the ESLint configuration as default
+export default {
+  configs: {
+    recommended: configArray,
+    all: [
+      ...configArray,
+      {
+        rules: {
+          "no-unused-vars": "off", // Example: Disable the "no-unused-vars" rule
+          "no-console": "warn",   // Example: Warn on console.log usage
+        },
+      },
+    ],
+  },
+};
